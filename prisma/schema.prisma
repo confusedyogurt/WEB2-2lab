@@ -1,0 +1,42 @@
+generator client {
+  provider     = "prisma-client-js"
+  advisoryLock = false
+  binaryTargets = ["windows", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+}
+
+model competition {
+  id            Int     @id @default(autoincrement())
+  name          String
+  competitors   String
+  scoringsystem String
+  round         round[]
+}
+
+model round {
+  id            Int          @id @default(autoincrement())
+  name          String
+  competitionId Int?
+  competition   competition? @relation(fields: [competitionId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "competitionId")
+  match         match[]
+}
+
+model match {
+  id           Int    @id @default(autoincrement())
+  firstplayer  String
+  secondPlayer String
+  result       String
+  roundId      Int?
+  round        round? @relation(fields: [roundId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "roundId")
+}

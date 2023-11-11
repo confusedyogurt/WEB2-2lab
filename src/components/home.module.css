@@ -1,0 +1,53 @@
+.container {
+    background-color: 	#383838;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 5rem;
+    overflow-y: auto;
+  }
+  
+  .card {
+    background-color: lightgray;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    width: 40vw;
+  }
+  
+  .messageItem {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    width: 40vw;
+    margin-bottom: 2rem;
+  }
+  
+  .messageContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%; 
+  }
+
+  .username {
+    color: black
+  }
+  
+  .message {
+    color: black
+  }
+
+  .header {
+    margin-bottom: 0.5rem;
+    color: black;
+  }
+
+  .desc {
+    margin-bottom: 1rem;
+    color: black;
+  }
+
+  .checkbox {
+    margin-bottom: 1.5rem;
+  }
